@@ -1,6 +1,6 @@
 # Rain Zhu CV Website
 
-A bilingual static CV and portfolio website for a senior software engineer.
+A bilingual static CV and portfolio website for a firmware and embedded engineer.
 
 Live URL after GitHub Pages is enabled:
 
