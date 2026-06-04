@@ -4,7 +4,7 @@ A bilingual static CV and portfolio website for a senior software engineer.
 
 Live URL after GitHub Pages is enabled:
 
-https://anic315.github.io/resume/
+https://rzfjzmdwcm-cell.github.io/rain_resume/
 
 ## Edit content
 

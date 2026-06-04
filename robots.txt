@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /scret.html
 
-Sitemap: https://anic315.github.io/resume/sitemap.xml
+Sitemap: https://rzfjzmdwcm-cell.github.io/rain_resume/sitemap.xml
