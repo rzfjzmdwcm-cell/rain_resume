@@ -506,7 +506,7 @@
           <p data-i18n="contact.body">如果你正在尋找熟悉嵌入式、MCU、IoT、視覺偵測或機器人控制的軟韌體工程師，可以透過 Email 或 LinkedIn 與我聯繫。</p>
         </div>
         <div class="hero-actions">
-          <a class="button primary" href="mailto:your.email@example.com" data-i18n="contact.email">Email</a>
+          <a class="button primary" href="mailto:anic315@gmail.com" data-i18n="contact.email">Email</a>
           <a class="button" href="https://www.linkedin.com/in/rain-zhu-694601144/" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
         </div>
       </div>
@@ -758,6 +758,22 @@
     });
 
     setLanguage(localStorage.getItem("cv-language") || "zh");
+
+    // 增加導覽列捲動追蹤 (Active State on Scroll)
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('nav a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section[id]').forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
