@@ -24,6 +24,20 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       display: block;
     }
+
+    /* 手機與平板小螢幕佈局優化 */
+    @media (max-width: 940px) {
+      .profile-photo {
+        margin-left: auto;
+        margin-right: auto; /* 讓圖片在區塊內水平置中 */
+      }
+      .hero > div {
+        text-align: center; /* 讓標題、描述文字在小螢幕也跟著置中 */
+      }
+      .hero-actions {
+        justify-content: center; /* 讓按鈕群組在小螢幕置中 */
+      }
+    }
   </style>
 </head>
 
