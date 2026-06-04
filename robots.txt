@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /scret.html
+
+Sitemap: https://niarlife.online/sitemap.xml

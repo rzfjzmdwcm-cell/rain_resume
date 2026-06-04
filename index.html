@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rain Zhu 的高級工程師履歷網站，收錄 8 年軟體工程經驗、專案作品、技能與聯絡資訊。">
+  <meta name="keywords" content="Rain Zhu, senior software engineer, CV, resume, portfolio, web engineer">
+  <meta name="author" content="Rain Zhu">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://niarlife.online/">
+  <title>Rain Zhu | Senior Software Engineer CV</title>
+
+  <style>
+    :root {
+      --bg: #080908;
+      --panel: rgba(255, 255, 255, 0.07);
+      --panel-strong: rgba(255, 255, 255, 0.11);
+      --text: #f5f2ec;
+      --muted: #b8b4aa;
+      --line: rgba(255, 255, 255, 0.16);
+      --accent: #43d6c7;
+      --accent-warm: #d7a94b;
+      --ink: #10110f;
+      --font: "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8, 9, 8, 0.2), #080908 92%),
+        url("assets/hero-engineering.png") center top / cover no-repeat;
+      opacity: 0.48;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      padding: 18px 22px;
+      background: rgba(8, 9, 8, 0.68);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      z-index: 10;
+    }
+
+    nav a,
+    .lang-toggle button {
+      color: #dcd8ce;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.8px;
+      transition: 0.25s;
+      white-space: nowrap;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: white;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      gap: 4px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .lang-toggle button {
+      min-width: 42px;
+      min-height: 30px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .lang-toggle button.active {
+      background: white;
+      color: var(--ink);
+    }
+
+    main {
+      width: min(1180px, 90vw);
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.68fr);
+      gap: 54px;
+      align-items: center;
+      padding: 136px 0 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      font-weight: 650;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 28px 0 0;
+      color: #ded9ce;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      transition: 0.25s;
+    }
+
+    .button.primary {
+      background: white;
+      color: var(--ink);
+      border-color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    .snapshot {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(8, 9, 8, 0.52);
+      backdrop-filter: blur(18px);
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 34px;
+      color: white;
+    }
+
+    .metric span {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 84px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(32px, 4.8vw, 56px);
+      line-height: 1;
+    }
+
+    .section-note {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill,
+    .project,
+    .timeline-item,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.055);
+      backdrop-filter: blur(12px);
+    }
+
+    .skill {
+      min-height: 162px;
+      padding: 20px;
+    }
+
+    .skill h3,
+    .project h3,
+    .timeline-item h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .skill p,
+    .project p,
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 26px;
+      padding: 24px;
+    }
+
+    .period {
+      color: var(--accent-warm);
+      font-size: 13px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: #e8e3d8;
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 292px;
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: "";
+      display: block;
+      height: 92px;
+      margin: -22px -22px 20px;
+      background:
+        linear-gradient(135deg, rgba(67, 214, 199, 0.35), rgba(215, 169, 75, 0.26)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 18px);
+    }
+
+    .project-link {
+      margin-top: auto;
+      padding-top: 20px;
+      color: white;
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-decoration: none;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .contact-panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    footer {
+      width: min(1180px, 90vw);
+      margin: 0 auto;
+      padding: 36px 0 48px;
+      color: #8d887d;
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 940px) {
+      nav {
+        justify-content: flex-start;
+        gap: 16px;
+        overflow-x: auto;
+      }
+
+      .hero,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .skills,
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 16px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        width: min(100% - 32px, 560px);
+      }
+
+      nav a,
+      .lang-toggle button {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 122px;
+      }
+
+      .hero-actions .button,
+      .contact-panel .button {
+        width: 100%;
+      }
+
+      .skills,
+      .projects,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav aria-label="Primary navigation">
+    <a href="#top" data-i18n="nav.home" class="active">首頁</a>
+    <a href="#skills" data-i18n="nav.skills">能力</a>
+    <a href="#experience" data-i18n="nav.experience">經歷</a>
+    <a href="#projects" data-i18n="nav.projects">作品</a>
+    <a href="#contact" data-i18n="nav.contact">聯絡</a>
+    <div class="lang-toggle" aria-label="Language">
+      <button type="button" data-lang="zh" class="active">中</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">8 年經驗 / 高級工程師</p>
+        <h1 id="hero-title" data-i18n="hero.title">把複雜產品做成穩定、可維護、能成長的系統。</h1>
+        <p class="lead" data-i18n="hero.lead">
+          我是 Rain Zhu，一名高級軟體工程師。專注於 Web 產品、後端服務、系統整合與工程效率，擅長在需求不斷變動的環境裡建立清楚的架構與可靠的交付節奏。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects" data-i18n="hero.primary">查看作品</a>
+          <a class="button" href="#contact" data-i18n="hero.secondary">聯絡面試</a>
+        </div>
+      </div>
+
+      <aside class="snapshot" aria-label="Career snapshot">
+        <div class="metric">
+          <strong>8+</strong>
+          <span data-i18n="metrics.years">年軟體開發與產品交付經驗</span>
+        </div>
+        <div class="metric">
+          <strong data-i18n="metrics.roleValue">Senior</strong>
+          <span data-i18n="metrics.role">可獨立負責架構、開發、上線與跨部門協作</span>
+        </div>
+        <div class="metric">
+          <strong data-i18n="metrics.focusValue">Web / API</strong>
+          <span data-i18n="metrics.focus">前後端整合、資料流程、效能與維運品質</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <h2 data-i18n="skills.title">核心能力</h2>
+        <p class="section-note" data-i18n="skills.note">用工程判斷把商業需求轉成可落地的產品能力，並讓團隊後續接手時依然清楚。</p>
+      </div>
+      <div class="skills" id="skills-list"></div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <h2 data-i18n="experience.title">經歷摘要</h2>
+        <p class="section-note" data-i18n="experience.note">以下先以可公開版本呈現，正式公司名稱、任職時間與量化成果可再依你的履歷補齊。</p>
+      </div>
+      <div class="timeline" id="experience-list"></div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2 data-i18n="projects.title">作品與專案</h2>
+        <p class="section-note" data-i18n="projects.note">放上可以討論架構、決策與成果的作品，比只列技術名稱更能幫面試官快速理解你。</p>
+      </div>
+      <div class="projects" id="projects-list"></div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">OPEN TO INTERVIEWS</p>
+          <h2 data-i18n="contact.title">歡迎聯絡我討論工程職缺。</h2>
+          <p data-i18n="contact.body">如果你正在尋找能主動釐清需求、交付產品、改善系統品質的高級工程師，可以透過 Email 或 LinkedIn 與我聯繫。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:your.email@example.com" data-i18n="contact.email">Email</a>
+          <a class="button" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="footer">© 2026 Rain Zhu. Built as a bilingual CV portfolio.</span>
+  </footer>
+
+  <script>
+    const profile = {
+      zh: {
+        nav: {
+          home: "首頁",
+          skills: "能力",
+          experience: "經歷",
+          projects: "作品",
+          contact: "聯絡"
+        },
+        hero: {
+          eyebrow: "8 年經驗 / 高級工程師",
+          title: "把複雜產品做成穩定、可維護、能成長的系統。",
+          lead: "我是 Rain Zhu，一名高級軟體工程師。專注於 Web 產品、後端服務、系統整合與工程效率，擅長在需求不斷變動的環境裡建立清楚的架構與可靠的交付節奏。",
+          primary: "查看作品",
+          secondary: "聯絡面試"
+        },
+        metrics: {
+          years: "年軟體開發與產品交付經驗",
+          roleValue: "Senior",
+          role: "可獨立負責架構、開發、上線與跨部門協作",
+          focusValue: "Web / API",
+          focus: "前後端整合、資料流程、效能與維運品質"
+        },
+        skills: {
+          title: "核心能力",
+          note: "用工程判斷把商業需求轉成可落地的產品能力，並讓團隊後續接手時依然清楚。",
+          items: [
+            { title: "產品工程", body: "從需求釐清、技術拆解、開發到上線驗證，能平衡速度、品質與可維護性。" },
+            { title: "系統設計", body: "設計 API、資料模型、權限流程與服務邊界，讓功能能長期擴充。" },
+            { title: "前後端整合", body: "熟悉現代 Web 介面、狀態管理、後端服務串接與使用者流程優化。" },
+            { title: "工程效率", body: "改善開發流程、部署品質、測試策略與文件，使團隊更容易交付。" }
+          ]
+        },
+        experience: {
+          title: "經歷摘要",
+          note: "以下先以可公開版本呈現，正式公司名稱、任職時間與量化成果可再依你的履歷補齊。",
+          items: [
+            {
+              period: "近年職務",
+              title: "Senior Software Engineer",
+              body: "主導核心功能開發與系統維護，與產品、設計、營運協作，將需求轉化為穩定的產品能力。",
+              tags: ["Architecture", "Delivery", "Mentoring"]
+            },
+            {
+              period: "成長階段",
+              title: "Full-stack / Backend Engineer",
+              body: "負責前後端功能、資料流程、第三方服務整合與內部工具，累積跨領域問題解決能力。",
+              tags: ["Web", "API", "Integration"]
+            },
+            {
+              period: "早期經驗",
+              title: "Software Engineer",
+              body: "建立扎實的開發基礎，參與產品迭代、維運支援與效能改善，熟悉從程式碼到上線的完整流程。",
+              tags: ["Frontend", "Backend", "Operations"]
+            }
+          ]
+        },
+        projects: {
+          title: "作品與專案",
+          note: "放上可以討論架構、決策與成果的作品，比只列技術名稱更能幫面試官快速理解你。",
+          link: "查看或補上連結",
+          items: [
+            {
+              title: "個人 CV / Portfolio 網站",
+              body: "以靜態網站實作雙語履歷、作品展示與聯絡入口，適合部署到 GitHub Pages 或自有網域。",
+              tags: ["HTML", "CSS", "JavaScript"]
+            },
+            {
+              title: "產品後台與內部工具",
+              body: "整理營運工作流、資料查詢與管理操作，降低人工處理成本並提升團隊可見度。",
+              tags: ["Admin", "Workflow", "Data"]
+            },
+            {
+              title: "API 與系統整合",
+              body: "設計可維護的服務介面，串接第三方服務、排程任務與資料同步流程。",
+              tags: ["API", "Jobs", "Reliability"]
+            }
+          ]
+        },
+        contact: {
+          eyebrow: "OPEN TO INTERVIEWS",
+          title: "歡迎聯絡我討論工程職缺。",
+          body: "如果你正在尋找能主動釐清需求、交付產品、改善系統品質的高級工程師，可以透過 Email 或 LinkedIn 與我聯繫。",
+          email: "Email",
+          linkedin: "LinkedIn"
+        },
+        footer: "© 2026 Rain Zhu. Built as a bilingual CV portfolio."
+      },
+      en: {
+        nav: {
+          home: "Home",
+          skills: "Skills",
+          experience: "Experience",
+          projects: "Projects",
+          contact: "Contact"
+        },
+        hero: {
+          eyebrow: "8 Years Experience / Senior Engineer",
+          title: "Turning complex product needs into stable, maintainable systems.",
+          lead: "I am Rain Zhu, a senior software engineer focused on web products, backend services, system integration, and engineering productivity. I help teams create clear architecture and reliable delivery rhythms in fast-changing product environments.",
+          primary: "View Projects",
+          secondary: "Contact Me"
+        },
+        metrics: {
+          years: "years of software development and product delivery",
+          roleValue: "Senior",
+          role: "able to own architecture, implementation, launch, and cross-functional collaboration",
+          focusValue: "Web / API",
+          focus: "frontend-backend integration, data flows, performance, and operational quality"
+        },
+        skills: {
+          title: "Core Skills",
+          note: "I translate business needs into practical product capabilities with engineering judgment and clear handoff quality.",
+          items: [
+            { title: "Product Engineering", body: "From requirement shaping to implementation and launch validation, balancing speed, quality, and maintainability." },
+            { title: "System Design", body: "Designing APIs, data models, permission flows, and service boundaries that can grow over time." },
+            { title: "Full-stack Integration", body: "Building modern web interfaces, stateful workflows, backend integrations, and polished user journeys." },
+            { title: "Engineering Productivity", body: "Improving development flow, deployment quality, testing strategy, and documentation for stronger delivery." }
+          ]
+        },
+        experience: {
+          title: "Experience",
+          note: "This is a public-friendly version. Company names, dates, and quantified impact can be filled in from your formal resume.",
+          items: [
+            {
+              period: "Recent Role",
+              title: "Senior Software Engineer",
+              body: "Led core feature development and system maintenance while collaborating with product, design, and operations teams.",
+              tags: ["Architecture", "Delivery", "Mentoring"]
+            },
+            {
+              period: "Growth Stage",
+              title: "Full-stack / Backend Engineer",
+              body: "Owned frontend and backend features, data flows, third-party integrations, and internal tools across product areas.",
+              tags: ["Web", "API", "Integration"]
+            },
+            {
+              period: "Foundation",
+              title: "Software Engineer",
+              body: "Built solid engineering fundamentals through product iteration, production support, and performance improvements.",
+              tags: ["Frontend", "Backend", "Operations"]
+            }
+          ]
+        },
+        projects: {
+          title: "Projects",
+          note: "Projects that show architecture, tradeoffs, and outcomes help interviewers understand your work faster than technology lists alone.",
+          link: "View or add link",
+          items: [
+            {
+              title: "Personal CV / Portfolio Website",
+              body: "A bilingual static CV site with project highlights and contact entry points, ready for GitHub Pages or a custom domain.",
+              tags: ["HTML", "CSS", "JavaScript"]
+            },
+            {
+              title: "Admin Products and Internal Tools",
+              body: "Operational workflows, data lookup, and management tooling that reduce manual work and improve team visibility.",
+              tags: ["Admin", "Workflow", "Data"]
+            },
+            {
+              title: "API and System Integration",
+              body: "Maintainable service interfaces connecting third-party services, scheduled jobs, and data synchronization flows.",
+              tags: ["API", "Jobs", "Reliability"]
+            }
+          ]
+        },
+        contact: {
+          eyebrow: "OPEN TO INTERVIEWS",
+          title: "Let us talk about engineering roles.",
+          body: "If you are looking for a senior engineer who can clarify requirements, ship product, and improve system quality, reach me by Email or LinkedIn.",
+          email: "Email",
+          linkedin: "LinkedIn"
+        },
+        footer: "© 2026 Rain Zhu. Built as a bilingual CV portfolio."
+      }
+    };
+
+    const selectors = document.querySelectorAll("[data-i18n]");
+    const langButtons = document.querySelectorAll("[data-lang]");
+    const skillsList = document.getElementById("skills-list");
+    const experienceList = document.getElementById("experience-list");
+    const projectsList = document.getElementById("projects-list");
+
+    function valueForPath(source, path) {
+      return path.split(".").reduce((value, key) => value && value[key], source);
+    }
+
+    function tagTemplate(tags) {
+      return tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+    }
+
+    function renderCards(lang) {
+      const content = profile[lang];
+
+      skillsList.innerHTML = content.skills.items.map(item => `
+        <article class="skill">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+        </article>
+      `).join("");
+
+      experienceList.innerHTML = content.experience.items.map(item => `
+        <article class="timeline-item">
+          <div class="period">${item.period}</div>
+          <div>
+            <h3>${item.title}</h3>
+            <p>${item.body}</p>
+            <div class="tags">${tagTemplate(item.tags)}</div>
+          </div>
+        </article>
+      `).join("");
+
+      projectsList.innerHTML = content.projects.items.map(item => `
+        <article class="project">
+          <h3>${item.title}</h3>
+          <p>${item.body}</p>
+          <div class="tags">${tagTemplate(item.tags)}</div>
+          <a class="project-link" href="#contact">${content.projects.link}</a>
+        </article>
+      `).join("");
+    }
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+      selectors.forEach(element => {
+        const text = valueForPath(profile[lang], element.dataset.i18n);
+        if (text) element.textContent = text;
+      });
+      renderCards(lang);
+      langButtons.forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+      localStorage.setItem("cv-language", lang);
+    }
+
+    langButtons.forEach(button => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    setLanguage(localStorage.getItem("cv-language") || "zh");
+  </script>
+</body>
+</html>
