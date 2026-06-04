@@ -2,6 +2,10 @@
 
 A bilingual static CV and portfolio website for a senior software engineer.
 
+Live URL after GitHub Pages is enabled:
+
+https://anic315.github.io/resume/
+
 ## Edit content
 
 Most resume content lives in `index.html` inside the `profile` object:

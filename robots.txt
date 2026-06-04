@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /scret.html
 
-Sitemap: https://niarlife.online/sitemap.xml
+Sitemap: https://anic315.github.io/resume/sitemap.xml
